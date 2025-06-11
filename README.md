@@ -27,18 +27,13 @@ Looking for a perfect codebase generator for your Startup? Try [Flatlogic AI Web
    ```bash
    yarn install  # Or npm install
    ```
-3. **Run the app**  
+3. **Run the app**
    ```bash
-   yarn start
+   yarn dev
    ```
    Navigate to http://localhost:3000/.
 
-4. **Backend Support**  
-   ```bash
-   yarn start:backend
-   ```
-
-5. **Build for production**  
+4. **Build for production**
    ```bash
    yarn build
    ```
@@ -50,19 +45,17 @@ Looking for a perfect codebase generator for your Startup? Try [Flatlogic AI Web
 - Easily customizable styling & themes
 - Over 30 Unique Pages
 - Fully Responsive
-- React 17
+- React 19
 - Bootstrap 5
 - Server-Side Rendering for SEO
 - Developer-Oriented Dashboard
 - Fully Documented Codebase
 
----
-
 ## 🛠 Built With
-- React 17
+- React 19
 - Bootstrap 5
 - Node.js
-- Webpack
+- Vite
 - SASS
 - JavaScript (ES6)
 
