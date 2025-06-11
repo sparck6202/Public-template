@@ -1,30 +1,37 @@
-/* eslint-env mocha */
-/* eslint-disable padded-blocks, no-unused-expressions */
-
 import React from 'react';
-import { expect } from 'chai';
-import { render } from 'enzyme';
+import { MemoryRouter } from 'react-router';
+import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import App from '../App';
+import { render, screen } from '@testing-library/react';
 import Layout from './Layout';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
-const initialState = {};
 
-describe('Layout', () => {
-  it('renders children correctly', () => {
-    const store = mockStore(initialState);
+const initialState = {
+  navigation: {
+    sidebarOpened: false,
+    activeItem: '/',
+    sidebarPosition: 'left',
+    sidebarVisibility: 'show',
+  },
+  layout: {
+    dashboardTheme: 'dark',
+    themeColor: '#fff',
+  }
+};
 
-    const wrapper = render(
-      <App context={{ insertCss: () => {}, store }}>
+test('renders children correctly', () => {
+  const store = mockStore(initialState);
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
         <Layout>
-          <div className="child" />
+          <div data-testid="child" />
         </Layout>
-      </App>,
-    );
-    expect(wrapper.find('div.child').length).to.eq(1);
-  });
-
+      </MemoryRouter>
+    </Provider>
+  );
+  expect(screen.getByTestId('child')).toBeInTheDocument();
 });
