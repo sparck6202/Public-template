@@ -38,6 +38,12 @@ Looking for a perfect codebase generator for your Startup? Try [Flatlogic AI Web
    yarn build
    ```
 
+5. **Run tests**
+   ```bash
+   yarn test
+   ```
+   Uses Vitest with jsdom.
+
 ---
 
 ## 🧩 Features
